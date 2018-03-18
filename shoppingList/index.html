@@ -1,0 +1,51 @@
+<!DOCTYPE>
+<html>
+<head>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+<script type="text/javascript" src="myapp.js" ></script>
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+
+<style type="text/css">
+	
+	.container{
+		margin-top: 50px;
+	}		
+
+</style>
+<title>Login</title>
+</head>
+<body ng-app="myApp">
+
+	<div ng-controller="myController">
+
+		<input type="text" ng-model="name" />
+		<br /><br /> 
+		Counter: {{counter}}
+
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+				</div>
+				<div class="col-md-4">
+					<ul class="list-group" ng-repeat="product in products">
+		  				<li class="list-group-item">{{product}} <span ng-click="deleteProduct(product);">&times;</span></li>
+		  			</ul>	
+				
+					<input type="text" ng-model="prod" class="form-control"> 
+					<button class="btn btn-primary" ng-click="addProduct(prod);">Add</button>
+					<p style="color:red">{{errortext}}</p>
+				</div>
+				<div class="col-md-4">
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+	
+	
+</body>
+</html>

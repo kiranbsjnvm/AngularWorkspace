@@ -1,0 +1,42 @@
+<!DOCTYPE>
+<html>
+<head>
+
+<script type="text/javascript" src="bower_components/angular/angular.min.js" ></script>
+<script type="text/javascript" src="bower_components/angular-route/angular-route.js" ></script>
+<script type="text/javascript" src="myapp.js" ></script>
+	
+<style type="text/css">
+		#pageContent
+		{
+			margin-left: 50px;
+			margin-top: 50px;
+			border: 2px green solid;
+			padding: 40px;
+			width: 500;
+
+		}
+
+</style>
+<title>Home</title>
+</head>
+<body ng-app="myApp">
+
+
+	<div id = "links">
+		<a href="#/home">Home</a>
+		<a href="#/courses">Courses</a>
+		<a href="#/students">Students</a>
+	</div>
+
+	<div id="pageContent">
+		
+		<ng-view></ng-view>
+
+	</div>
+
+
+</div>
+	
+</body>
+</html>

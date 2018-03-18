@@ -1,0 +1,35 @@
+@keyframes example 
+{
+    from { opacity:0;background:green; }
+    to { opacity:1;background:rebeccapurple; }
+}
+
+@keyframes example2
+{
+    from { opacity:1;background:yellow; }
+    to { opacity:0;background:rgb(72, 195, 243); }
+}
+
+/* For ng-if */
+.my-class
+{
+    background: rosybrown;
+}
+.my-class.ng-enter 
+{
+    animation: 4s example;
+}
+.my-class.ng-leave 
+{
+    animation: 4s example2;
+}
+
+/* For ng-hide */
+.my-class2
+{
+    background:chartreuse;
+}
+.my-class2.ng-hide-remove
+{
+    animation: 4s example;
+}

@@ -1,0 +1,208 @@
+console.log("a");
+
+window.setTimeout(function(){
+    console.log("b");
+});
+
+console.log("c");
+
+o/p :
+a
+c
+b
+
+****************************************************
+
+api : http://maps.googleapis.com/maps/api/geocode/json?address=Bangalore
+
+****************************************************
+
+var http = new XMLHttpRequest();
+http.open('GET','https://jsonplaceholder.typicode.com/posts',true);
+http.send();
+console.log(http);
+
+
+// 0: request not initialized 
+// 1: server connection established
+// 2: request received 
+// 3: processing request 
+// 4: request finished and response is ready
+
+
+var http = new XMLHttpRequest();
+http.onreadystatechange = function(){
+    console.log("State changed to : "+http.readyState);
+}
+http.open('GET','https://jsonplaceholder.typicode.com/posts',true);
+http.send();
+console.log(http);
+
+
+
+var http = new XMLHttpRequest();
+http.open('GET','https://jsonplaceholder.typicode.com/posts',true);
+http.send();
+
+http.onreadystatechange = function(){
+    if(http.readyState == 4 && http.status==200)
+    {
+        console.log("data : ",JSON.parse(http.response));
+    }
+}
+
+
+
+// Async call and callback in jquery
+console.log("a")
+$.get('https://jsonplaceholder.typicode.com/posts', function (data) {
+    console.log(data)
+})
+console.log("b")
+
+// AJAX Call Jquery
+$.ajax({
+    type: "GET",
+    url: "https://jsonplaceholder.typicode.com/posts",
+    success: function (data) {
+        console.log("data - ", data);
+    },
+    error: function (jqXHR, textStatus, error) {
+        console.log(error)
+
+    }
+})
+
+
+//multiple async ajax calls
+$.ajax({
+    type: "GET",
+    url: "https://jsonplaceholder.typicode.com/posts",
+    success: function (posts) {
+        console.log("posts - ", posts);
+
+        $.ajax({
+            type: "GET",
+            url: "https://jsonplaceholder.typicode.com/comments",
+            success: function (comments) {
+                console.log("comments - ", comments);
+
+                $.ajax({
+                    type: "GET",
+                    url: "https://jsonplaceholder.typicode.com/photos",
+                    success: function (photos) {
+                        console.log("photos - ", photos);
+                    },
+                    error: function (jqXHR, textStatus, error) {
+                        console.log(error)
+
+                    }
+                })
+            },
+            error: function (jqXHR, textStatus, error) {
+                console.log(error)
+
+            }
+        })
+    },
+    error: function (jqXHR, textStatus, error) {
+        console.log(error)
+
+    }
+})
+
+
+// Promises -
+
+function get(url) { //takes in url, the data we want to collect
+    return new Promise(function (resolve, reject) { // returns a promise object which takes a function which takes two parameters resolve and reject
+        // resolve - when a promise is resolved/ success
+        // reject - when a promise is rejected/ error
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", url, true);
+        xhttp.onload = function () {
+            if (xhttp.status == 200) {
+                resolve(JSON.parse(xhttp.response))
+            } else {
+                reject(xhttp.statusText)
+            }
+        };
+        xhttp.onerror = function () {
+            reject(xhttp.statusText)
+        };
+        xhttp.send();
+    });
+}
+
+var promise = get("https://jsonplaceholder.typicode.com/posts"); // returns a new promise to us
+promise.then(function (posts) { // promise fulfills and data returns to us, we use then method
+    console.log("posts - ", posts);
+}).catch(function (error) { // associated methods with the promise object
+    console.log("error - ", error)
+})
+
+
+//promise chaining
+promise.then(function (posts) { // promise fulfills and data returns to us, we use then method
+    console.log("posts - ", posts);
+    return get("https://jsonplaceholder.typicode.com/comments")
+}).then(function (comments) {
+    console.log("comments - ", comments);
+    // return another get and so on
+}).catch(function (error) { // associated methods with the promise object
+    console.log("error - ", error)
+})
+
+
+//promise chaining jquery
+$.get("https://jsonplaceholder.typicode.com/posts").then(function (posts) {
+    console.log("posts - ", posts)
+    return $.get("https://jsonplaceholder.typicode.com/comments")
+}).then(function (comments) {
+    console.log("comments - ", comments)
+})
+
+
+$q.all([$http.get('data1.json'),$http.get('data2.json')])
+      .then(function(response){
+        console.log(response[0].data) // data1.json response 
+        console.log(response[1].data) // data1.json response 
+ })
+
+
+
+// Angular Services factories
+
+app.service("myService", function () {
+    //var this = {}
+    this.doSomething = function () {
+
+    }
+    //return this
+})
+
+app.factory("myFactory", function () {
+    var factoryObj = {}
+    factoryObj.doSomething = function () {
+
+    }
+    return factoryObj;
+})
+
+// factory benefit
+
+app.factory("myFactory", function () {
+    return function (descrption, order) {
+        return {
+            descrption: descrption,
+            priority: order,
+            done: function () {
+                // do something
+            }
+        }
+    }
+})
+
+app.controller("myController", function (myFactory) {
+    var doIt = new myFactory("learn angular", 1);
+})

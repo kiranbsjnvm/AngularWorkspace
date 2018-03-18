@@ -1,0 +1,45 @@
+<!DOCTYPE>
+<html>
+<head>
+
+<script type="text/javascript" src="../thirdParty/angular/angular.min.js" ></script>
+<script type="text/javascript" src="myapp.js" ></script>
+
+
+<style type="text/css">
+	
+		#scrollPage 
+		{
+		   border: 1px black solid;
+		   width: 200px;
+		   padding: 20px
+		}
+
+</style>
+<title>Login</title>
+</head>
+<body ng-app="myApp">
+
+	<div ng-controller="myController">
+
+		<button ng-click=getData();>Get data</button>
+
+		<div ng-repeat="fruit in fruits">
+			{{fruit}}
+		</div>
+	</div>
+
+	<hr>
+
+	<div ng-controller="myController2">
+		
+		<input type="button" ng-click="getAsyncMessage()" value="Get me an async message"/> <br/> <br/>
+		<input type="button" ng-click="cancelRequested=true" value="Cancel Fetching Message"/><br/>
+		Promise Status - {{status}}
+
+	</div>
+
+</div>
+	
+</body>
+</html>

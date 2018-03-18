@@ -1,0 +1,45 @@
+<html>
+<head>
+    <!-- Jasmine References -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine-html.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/boot.min.js"></script>
+
+    <!-- Angular and Angular Mock references -->
+    <script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular-mocks.js"></script>
+
+    <!-- myapp script file-->
+    <script type="text/javascript" src="../controllers/calculator.js" ></script>
+
+</head>
+<body></body>
+
+<script type="text/javascript">
+
+    /* Test Code */
+    describe('calculatorTests', function () {
+
+        var $controller;
+
+        beforeEach(module('calculatorApp'));
+
+        beforeEach(inject(function(_$controller_){
+            $controller = _$controller_;
+        }));
+
+        describe('sum', function () {
+            it('1 + 1 should equal 2', function () {
+                var $scope = {};
+                var controller = $controller('CalculatorController', { $scope: $scope });
+                $scope.x = 1;
+                $scope.y = 2;
+                $scope.sum();
+
+                expect($scope.z).toBe(3);
+            });
+        });
+    });
+</script>
+</html>

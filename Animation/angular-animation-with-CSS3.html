@@ -1,0 +1,34 @@
+<!DOCTYPE>
+<html>
+<head>
+
+<script type="text/javascript" src="../thirdparty/angular/angular.min.js" ></script>
+<script type="text/javascript" src="../thirdparty/angular/angular-animate.min.js" ></script>
+
+<script type="text/javascript" src="myapp.js" ></script>
+<link rel="stylesheet" href="angular-animation-with-CSS3.css"/>
+
+<title>Angular Animation Example</title>
+</head>
+<body ng-app="myApp">
+ 
+	<div ng-init="isShown=false">
+		<input type="checkbox" ng-model="isShown" />Show
+
+		<div class="my-class" ng-if="isShown">
+			<h3>Enter/Leave Animation</h3>
+		</div>
+	</div>
+
+	<h4>With ng-hide directive</h4>
+	<div ng-init="isShown2=false">
+		<input type="checkbox" ng-model="isShown2" />Show
+		<div class="my-class2" ng-show="isShown2">
+			<h3>Show/Hide Animation</h3>
+		</div>
+	</div>
+	
+
+	
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE>
+<html>
+<head>
+
+<script type="text/javascript" src="angular.min.js" ></script>
+<script type="text/javascript" src="myapp.js" ></script>
+<script type="text/javascript" src="MyService.js" ></script>
+<script type="text/javascript" src="Filter.js" ></script>
+
+<title>Login</title>
+</head>
+<body ng-app="myApp">
+
+	<div ng-controller="myController">
+
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Gender</th>
+				<th>City</th>
+			</tr>
+			<tr ng-repeat="emp in employees">
+				<td>{{emp.name}}</td>
+				<td>{{emp.gender | genderFilter}}</td>
+				<td>{{emp.city}}</td>
+			</tr>
+		</table>
+
+
+		<div>
+			<h3>String formatter</h3>
+
+			<table>
+				<tr>
+					<td><input type="text" ng-model="input"></td>
+				</tr>
+				<tr>
+					<td><input type="text" ng-model="output"></td>
+				</tr>
+				<tr>
+					<td><button ng-click="formatString(input);">Process String</button></td>
+				</tr>
+			</table>
+
+		</div>
+
+	</div>
+
+</div>
+	
+</body>
+</html>

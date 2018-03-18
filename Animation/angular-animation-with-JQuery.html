@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html>
+<head>
+
+<script type="text/javascript" src="../thirdParty/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../thirdParty/angular/angular.min.js" ></script>
+<script type="text/javascript" src="../thirdParty/angular/angular-animate.min.js" ></script>
+
+<script type="text/javascript" src="angular-animation-with-JQuery.js" ></script>
+
+
+<title>Angular Animation Example</title>
+</head>
+<body ng-app="myApp">
+ 
+	<div ng-init="isShown=false">
+		<input type="checkbox" ng-model="isShown" />Show
+
+		<div class="my-class" ng-if="isShown">
+			<h3>Enter/Leave Animation</h3>
+		</div>
+	</div>
+
+		
+</body>
+</html>

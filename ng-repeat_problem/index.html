@@ -1,0 +1,25 @@
+<!DOCTYPE>
+<html>
+<head>
+
+<script type="text/javascript" src="../thirdParty/angular/angular.min.js"></script>
+
+<script type="text/javascript" src="myapp.js" ></script>
+
+<title>Login</title>
+</head>
+<body ng-app="myApp">
+
+	<div ng-controller="MyController">
+  		
+		<div ng-repeat="people in peoples">
+			<input type="text" ng-model="people.name"/> - {{people.name}}
+		</div>	   
+		<button ng-click="checkIfPeopleSame()">Check</button>
+		{{message}}
+  	</div>
+
+</div>
+	
+</body>
+</html>

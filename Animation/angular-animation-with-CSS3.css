@@ -1,0 +1,55 @@
+/* for ng-if directive and ngInclude,ngRepeat */
+.my-class
+{
+    background: blue;
+}
+.my-class.ng-enter 
+{
+    -webkit-transition: 4s linear all;
+    /* -o-transition: 2s linear all;
+    -moz-transition: 2s linear all; */
+    opacity: 0;
+    background: green;
+}
+.my-class.ng-enter.ng-enter-active 
+{
+    opacity: 1;
+    background: blue;
+}
+
+.my-class.ng-leave 
+{
+    -webkit-transition: 3s linear all;
+    background: yellow
+}
+.my-class.ng-leave.ng-leave-active 
+{
+    opacity: 0;
+}
+
+
+/* For ng-show directive */
+.my-class2
+{
+    background: blue;
+}
+.my-class2.ng-hide-remove 
+{
+    -webkit-transition: 4s linear all;
+    opacity: 0;
+    background: green;
+}
+.my-class2.ng-hide-remove-active 
+{
+    opacity: 1;
+    background: tomato;
+}
+
+.my-class2.ng-hide-add 
+{
+    -webkit-transition: 4s linear all;
+}
+.my-class2.ng-hide-add-active 
+{
+    opacity: 0;
+}

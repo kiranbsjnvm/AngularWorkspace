@@ -1,0 +1,65 @@
+<!DOCTYPE>
+<html>
+<head>
+
+<script type="text/javascript" src="../thirdParty/angular/angular.min.js"></script>
+
+<script type="text/javascript" src="myapp.js" ></script>
+<script type="text/javascript" src="jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="bootstrap.min.js" ></script>
+
+
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+
+
+<title>Login</title>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				
+				<button class="btn btn-default" data-target="#myModal" data-toggle="modal">Login</button>	
+
+					<!-- Modal -->
+					<div class="modal fade" data-keyboard="false" data-backdrop="static"  id="myModal" tabindex="-1">
+					  	<div class="modal-dialog">
+
+						    <!-- Modal content-->
+						    <div class="modal-content">
+						      	<div class="modal-header">
+						        	<button class="close" data-dismiss="modal">&times;</button>
+						        	<h4 class="modal-title">Login</h4>
+						      	</div>
+						      	<div class="modal-body">
+						        	<form>
+								        <div class="form-group">
+							            	<label for="inputUsername">User Name</label>
+							            	<input type="text" class="form-control" ng-model="username" placeholder="username">
+							          	</div>
+							          	<div class="form-group">
+							            	<label for="inputPassword">Password</label>
+							            	<input type="text" class="form-control" ng-model="password" placeholder="password">
+							          	</div>
+								    </form>
+						      	</div>
+						      	<div class="modal-footer">
+						      		<button class="btn btn-primary" ng-click="submitForm();">Login</button>
+						        	<button class="btn btn-primary" data-dismiss="modal">Close</button>
+						      	</div>
+						    </div>
+
+					  	</div>
+					</div>
+
+			</div>
+		</div>
+
+	</div>
+
+	{{loginMsg}}
+
+	
+</body>
+</html>

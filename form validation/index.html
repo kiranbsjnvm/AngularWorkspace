@@ -1,0 +1,105 @@
+<!DOCTYPE>
+<html>
+<head>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+<script type="text/javascript" src="myapp.js" ></script>
+
+<style type="text/css">
+	
+  .error-message {
+      color: red;
+  }
+
+  input.ng-dirty.ng-invalid {
+      border-color: red;
+  }
+
+</style>
+<title>Login</title>
+</head>
+<body ng-app="myApp">
+
+	<div ng-controller="MyController1">
+  		
+      <form name="myForm" ng-submit="formSubmit()">
+        
+        <p>  Name : 
+          <input type="text" name="Student" ng-model="Student" ng-minlength="2" ng-required="true">  
+          <span class="error-message" ng-show="myForm.Student.$dirty && myForm.Student.$invalid">   
+            <span ng-show="myForm.Student.$error.required">Student Name is required.</span> 
+            <span ng-show="myForm.Student.$error.minlength">Minimum length required is 2</span>  
+          </span>  
+        </p>  
+
+
+        <p>  RollNumber
+          <input type="number" name="StudentRollNumber" ng-model="StudentRollNumber" ng-maxlength="6" ng-required="true">  
+          <span class="error-message" ng-show="myForm.StudentRollNumber.$dirty && myForm.StudentRollNumber.$invalid">   
+            <span ng-show="myForm.StudentRollNumber.$error.required">Student Roll Number is required.</span>  
+            <span ng-show="myForm.StudentRollNumber.$error.number">Not valid number!</span> 
+            <span ng-show="myForm.StudentRollNumber.$error.maxlength">Maximum length required is 6</span>  
+          </span>  
+        </p>  
+
+
+        <p>Student Birth Date:<br>  
+          <input type="date" name="BirthDate" ng-model="BirthDate" required placeholder="yyyy-MM-dd">  
+          <span style="color:red" ng-show="myForm.BirthDate.$dirty && myForm.BirthDate.$invalid">   
+            <span ng-show="myForm.BirthDate.$error.required">Student Birth Date is required.</span>  
+            <span ng-show="myForm.BirthDate.$error.date">Not a Valid Date.</span>  
+          </span>  
+        </p>  
+
+
+        <p> Email  : 
+          <input type="email" name="email" ng-model="email" ng-model-options="{updateOn:'blur mousedown'}" required>  
+          <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">   
+            <span ng-show="myForm.email.$error.required">Email is required.</span>  
+            <span ng-show="myForm.email.$error.email">Invalid email address.</span>  
+          </span>  
+        </p>
+
+
+        <p> Marks : 
+          <input type="number" name="marks" ng-model="marks" max="100" required>   
+          <span style="color:red" ng-show="myForm.marks.$dirty && myForm.marks.$invalid">   
+            <span ng-show="myForm.marks.$error.required">Marks is required.</span>   
+            <span ng-show="myForm.marks.$error.number">Invalid number.</span>   
+            <span ng-show="myForm.marks.$error.max">Max Percentage is 100.</span>   
+          </span> 
+        </p>
+
+        <button name="submit">Submit</button>
+
+      </form>
+   			
+
+      <h3>ng-switch example</h3>
+        Employee Name:    
+   
+        <select ng-model="selection" ng-options="name for name in names"></select>  
+        <div ng-switch on="selection">  
+            <div ng-switch-when="Tejas">You have select "Tejas"</div>  
+            <div ng-switch-when="Rakesh">You have select "Rakesh"</div>  
+            <div ng-switch-when="Jignesh">You have select "Jignesh"</div>  
+            <div ng-switch-default>Please select name</div>  
+        </div> 
+
+
+        <br/>
+        <select name="country" ng-model="user.country" 
+          ng-options="country.id as country.desc for country in countries">
+          <option value="">Please select an option</option>
+        </select> 
+        <div>Selected Country: {{user.country}}</div>
+
+  </div>
+
+    
+
+</div>
+	
+</body>
+</html>

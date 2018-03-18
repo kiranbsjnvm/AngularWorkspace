@@ -1,0 +1,45 @@
+<!DOCTYPE>
+<html>
+<head>
+
+<script type="text/javascript" src="../thirdParty/angular/angular.min.js" ></script>
+<script type="text/javascript" src="myapp.js" ></script>
+
+<style type="text/css">
+	
+
+</style>
+<title>Login</title>
+</head>
+<body ng-app="myApp">
+
+	<div ng-controller="MyController">
+		  
+		<h4>Custome Filter</h4>
+		<div ng-repeat="people in peoples">
+			 {{people | limitCharacters : 5}}
+		</div>
+		
+		
+		<h4>Chaining multiple Filter</h4>
+		<div ng-repeat="people in peoples">
+			 {{people | limitCharacters : 5 | uppercase}}
+		</div>
+
+		<h4>Word count </h4>
+		  <input type="text" ng-model="message"/> <br/>
+		  Word count : {{message | wordCount}}
+		
+	  </div>
+	  
+	  <div ng-controller="myController2">
+		<h5>Filter inside controller</h5>
+		{{name}}
+	  </div>
+
+	  
+
+</div>
+	
+</body>
+</html>

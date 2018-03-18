@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Controller testing</title>
+
+    <script type="text/javascript" src="../../thirdParty/angular/angular.min.js" ></script>
+    <script type="text/javascript" src="../controllers/calculator.js" ></script>
+
+</head>
+<body ng-app="calculatorApp">
+
+        <div ng-controller="CalculatorController">
+
+            <input ng-model="x" type="number">
+            <input ng-model="y" type="number">
+            <strong>{{z}}</strong>
+
+            <input type="button" ng-click="sum()" value="+">
+
+        </div>
+
+</body>
+</html>

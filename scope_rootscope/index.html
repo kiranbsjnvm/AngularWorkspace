@@ -1,0 +1,51 @@
+<!DOCTYPE>
+<html>
+<head>
+
+	<script src="../thirdParty/angular/angular.min.js"></script>
+	<script type="text/javascript" src="myapp.js" ></script>
+
+</head>
+<body ng-app="myApp">
+
+	<div ng-controller="parentController">
+
+		{{parentName}} 
+		<div>Root name 1 = {{rootName1}}</div>
+		<div>Root name 2 = {{rootName2}}</div>
+
+		<div ng-controller="childController">
+				{{parentName}} - {{childName}}
+				<div>Root name 1 = {{rootName1}}</div>
+				<div>Root name 2 = {{rootName2}}</div>
+		</div>
+
+	</div>
+
+	<hr>
+	<div ng-controller="myController">
+		<input type="text" ng-model="name">
+		{{count}}
+
+		<br/>
+		<input type="text" ng-model="form.firstName"> 
+		<input type="text" ng-model="form.lastName">
+		{{count2}}
+	</div>
+
+	<hr>
+	<div ng-controller="myController">
+		<input type="text" ng-model="item1"> <br/>
+		<input type="text" ng-model="item2">
+		{{message}}
+	</div>
+
+
+	<div ng-controller="TimeoutController">
+		<button ng-click="scheduleTask()">Get Message after 3 seconds</button>
+		<br/>Message fetched: {{message}}
+	</div>
+	
+	
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE>
+<html>
+<head>
+
+<script type="text/javascript" src="../thirdParty/angular/angular.min.js" ></script>
+<script type="text/javascript" src="myapp.js" ></script>
+
+
+<title>Login</title>
+</head>
+<body ng-app="myApp">
+
+	<div ng-controller="myController">
+
+		<input type="text" ng-model="message" placeholder="Enter message" />
+		<input type="text" ng-model="test" placeholder="Enter message" />
+		<button ng-click="changeText()">Change text</button>
+		<hello-world message-Attr="message"></hello-world>
+
+	</div>
+
+
+	<br/>
+	<hr>
+	<h4>Passing one directive into another</h4>
+	<outer-directive>
+		<inner-directive></inner-directive>
+	</outer-directive>
+
+</div>
+	
+</body>
+</html>

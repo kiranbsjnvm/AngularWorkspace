@@ -1,0 +1,36 @@
+<!DOCTYPE>
+<html>
+<head>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+<script type="text/javascript" src="myapp.js" ></script>
+
+<style type="text/css">
+	
+
+</style>
+<title>Login</title>
+</head>
+<body ng-app="myApp">
+
+	<div ng-controller="MyController1">
+  		<input type="button" value="Broadcast Down" ng-click="OnClick($event)" />
+  		<h4>{{Message}}</h4>
+   
+   			<div ng-controller="MyController2">
+    			<h4>{{Message}}</h4>
+    
+    				<div ng-controller="MyController3">
+     					<h4>{{Message}}</h4>
+     					<input type="button" value="Emit Up" ng-click="OnClick($event)" />
+    				</div>
+
+   			</div>
+   			
+  	</div>
+
+</div>
+	
+</body>
+</html>
